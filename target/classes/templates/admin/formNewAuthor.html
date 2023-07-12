@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		New Author
+	</title>
+<link rel="stylesheet" href="/css/stile.css" />
+</head>
+
+<body>
+	<div><a href="/"><img src="/libreria-logo.jpg" width="50%"/></a></div>
+	<h1>Aggiungi un autore</h1>
+	<form th:action="@{/admin/Author}" method="POST" th:object="${author}">
+		<div>
+			<span th:text="${messaggioErrore}">Errore</span>
+		</div>
+		
+		<div>
+			<label for="nome">Nome:</label> <span><input required type="text" th:field="${author.nome}" id="titolo"/></span>
+		</div>
+
+		<div>
+			<label for="cognome">Cognome:</label> <span><input required type="text" th:field="${author.cognome}" id="ISBN"/></span>
+		</div>
+		<div>
+			<label for="dateOfBirth">Data di Nascita:</label> <span><input type="date" th:field="${author.dateOfBirth}" id="urlImmagine" /></span>
+		</div>
+		<div>
+			<label for="biografia">biografia:</label> <span><input required type="text" th:field="${author.biografia}" id="biografia"/></span>
+		</div>
+
+		
+		
+		<div>
+			<span><button type="submit">Conferma</button></span>
+		</div>
+	</form>
+</body>
+
+</html>

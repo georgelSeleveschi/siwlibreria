@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		SiwLibreria - Homepage
+	</title>
+	<link rel="stylesheet" href="/css/stile.css" />
+</head>
+
+<body>
+	<header>
+		<div th:if="${#request.userPrincipal}">
+			<span th:text="${#request.userPrincipal.principal.username}"></span>
+			<a href="/logout">Logout</a>
+		</div>
+		<div th:unless="${#request.userPrincipal}">
+			<a href="/login">Login</a>
+		</div>
+	</header>
+		
+		<div><img src="/libreria-logo.jpg" width="50%"/></div>
+		<h1>Operazioni admin</h1>
+		<div>
+			<a href="/admin/formNewBook">Inserisci un nuovo libro</a>
+		</div>
+		<div>
+			<a href="/admin/formNewAuthor">Inserisci un Autore</a>
+		</div>
+			<div>
+			<a href="/admin/formNewStudent">Inserisci un Studente</a>
+		</div>
+		<div>
+			<a href="/admin/students">Gestisci studenti</a>
+		</div>
+		<div>
+			<a href="/admin/libri">Gestisci libri</a>
+		</div>
+		<div>
+			<a href="/admin/authors">Gestisci autori</a>
+		</div>
+		<div>
+			<a href="/admin/prestiti">Gestisci prestiti</a>
+		</div>
+		
+		<h1>Operazioni default</h1>
+		<div>
+			<a href="/formSearchISBN">Cerca libro per ISBN</a>
+		</div>
+		<div>
+			<a href="/formSearchTitle">Cerca libro per Titolo</a>
+		</div>
+	</body>
+</html>

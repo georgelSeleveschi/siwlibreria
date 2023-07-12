@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Studente</title>
+	<link rel="stylesheet" href="/css/stile.css" />
+</head>
+<body>
+	<div><a href="/"><img src="/libreria-logo.jpg" width="50%"/></a></div>
+	<div th:if="${student}">
+		<form th:action="@{/admin/deleteStudent}" method="get">
+			<h1 th:text="${student.nome}+' '+${student.cognome}">Pinco Pallino</h1>
+			<p>                   </p>
+			<p>Data di nascita: <span th:text="'(' + ${student.dateOfBirth} + ')'">11/01/2000</span></p>
+			<div><button type="Long" th:value=${student.matricola} name="id" >Delete</button></div>
+		</form>
+	</div>
+	<div th:unless="${student}">Non esiste</div>
+</body>
+</html>

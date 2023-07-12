@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>SiwMovie - Registrazione conclusa</title>
+	<link rel="stylesheet" href="/css/stile.css" />
+</head>
+
+<body>
+	<header>
+		<div th:if="${#request.userPrincipal}">
+			<span th:text="${#request.userPrincipal.principal.username}"></span>
+			<a href="/logout">Logout</a>
+		</div>
+		<div th:unless="${#request.userPrincipal}">
+			<a href="/login">Login</a>
+		</div>
+	</header>
+
+	<div><img src="/libreria-logo.jpg" width="50%"/></div>
+	<h1>Prestito registrato!</h1>
+	<div>
+			<a href="/index">
+			<button type="button">Torna alla home</button>
+			</a>
+		</div>
+</body>
+</html>

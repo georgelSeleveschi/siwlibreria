@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Prestiti</title>
+	<link rel="stylesheet" href="/css/stile.css" />
+</head>
+
+<body>
+	<div><a href="/"><img src="/libreria-logo.jpg" width="50%"/></a></div>
+	<h1>Prestiti Attivi</h1>
+	<div th:if="${prestitiAttivi.isEmpty()}">Non ci sono prestiti attivi nel sistema</div>
+	<ul>
+		<li th:each="prestitoA : ${prestitiAttivi}">
+			<div>Data di inizio prestito: <span th:text="'(' + ${prestitoA.dataInizio} + ')'">11/01/2000</span></div>
+			<div>Data di fine prestito: <span th:text="'(' + ${prestitoA.dataFine} + ')'">11/01/2000</span></div>
+			 libro : <a th:href="@{'/book'+'/'+${prestitoA.book.getId()}}" th:text="${prestitoA.book.getTitle()}+' '+${prestitoA.book.getIsbn()}">Pinco Pallino</a>
+		</li>
+	</ul>
+	<h1>Prestiti Conclusi</h1>
+	<div th:if="${prestitiConclusi.isEmpty()}">Non ci sono prestiti conclusi nel sistema</div>
+	<ul>
+		<li th:each="prestitoC : ${prestitiConclusi}">
+			<div>Data di inizio prestito: <span th:text="'(' + ${prestitoC.dataInizio} + ')'">11/01/2000</span></div>
+			<div>Data di fine prestito: <span th:text="'(' + ${prestitoC.dataFine} + ')'">11/01/2000</span></div>
+			 libro : <a th:href="@{'/book'+'/'+${prestitoC.book.getId()}}" th:text="${prestitoC.book.getTitle()}+' '+${prestitoC.book.getIsbn()}">Pinco Pallino</a>
+		</li>
+	</ul>
+</body>
+
+</html>

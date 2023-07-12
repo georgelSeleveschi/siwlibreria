@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		New Sudent
+	</title>
+<link rel="stylesheet" href="/css/stile.css" />
+</head>
+
+<body>
+	<div><a href="/"><img src="/libreria-logo.jpg" width="50%"/></a></div>
+	<h1>Aggiungi un studente</h1>
+	<form th:action="@{/admin/formNewStudent}" method="POST" th:object="${student}">
+		<div>
+			<span th:text="${messaggioErrore}">Errore</span>
+		</div>
+		<div>
+			<label for="matricola">Matricola:</label> <span><input required type="number" th:field="${student.matricola}" id="matricola"/></span>
+		</div>
+		
+		<div>
+			<label for="nome">Nome:</label> <span><input required type="text" th:field="${student.nome}" id="nome"/></span>
+		</div>
+
+		<div>
+			<label for="cognome">Cognome:</label> <span><input required type="text" th:field="${student.cognome}" id="cognome"/></span>
+		</div>
+		<div>
+			<label for="dateOfBirth">Data di Nascita:</label> <span><input type="date" th:field="${student.dateOfBirth}" id="dateOfBirth" /></span>
+		</div>
+		<div>
+			<label for="CF">CF:</label> <span><input required type="text" th:field="${student.CF}" id="CF"/></span>
+		</div>
+
+		
+		
+		<div>
+			<span><button type="submit">Conferma</button></span>
+		</div>
+	</form>
+</body>
+
+</html>

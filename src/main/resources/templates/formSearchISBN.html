@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cerca Libro</title>
+	<link rel="stylesheet" href="/css/stile.css" />
+</head>
+
+<body>
+	<div><a href="/"><img src="/libreria-logo.jpg" width="50%"/></a></div>
+	<h1>Cerca libro con isbn</h1>
+	<form th:action="@{/searchBooks}" method="post">
+		<div>isbn : <input type="text" th:value="${isbn}" name="isbn" />
+		</div>
+		<div><input type="submit" /></div>
+	</form>
+</body>
+
+</html>

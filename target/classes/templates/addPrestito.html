@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Prestiti</title>
+<link rel="stylesheet" href="/css/stile.css" />
+</head>
+
+<body>
+	<div><a href="/"><img src="/libreria-logo.jpg" width="50%"/></a></div>
+	<h1>Prestito</h1>
+	<div th:if="${books.isEmpty()}">Non ci sono libri disponibili</div>
+	<ul>
+		<li th:each="book : ${books}">
+			<span th:text="${book.title} + ' (' + ${book.isbn} + ')'">Up! (2000)</span>
+			<a th:href="@{'/formPrestito' + '/' + ${book.id} + '/' + ${#request.userPrincipal.principal.username}}">Prendi in prestito</a>
+		</li>
+	</ul>
+</body>
+
+</html>

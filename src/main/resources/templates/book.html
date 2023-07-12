@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Libro</title>
+	<link rel="stylesheet" href="/css/stile.css" />
+</head>
+
+<body>
+	<div><a href="/"><img src="/libreria-logo.jpg" width="50%"/></a></div>
+    <div th:if="${book}">	
+	    <h1 th:text="${book.title}">Dettagli Libro</h1>
+        <div>isbn : <span th:text="'(' + ${book.isbn} + ')'">2000</span></div>
+        <div>Categoria : <span th:text="'(' + ${book.categoria} + ')'"></span></div>
+        <span><img width="30%" th:src=${book.urlImage} /></span>
+        <div th:if="${book.autore}">
+        Autore : <a th:href="@{'/author'+'/'+${book.autore.getId()}}" th:text="${book.autore.getNome()}+' '+${book.autore.getCognome()}">Pinco Pallino</a>
+        </div>
+        <div th:unless="${book.autore}">
+			Autore non inserito
+		</div>
+    </div>
+    <div th:unless="${book}">Non esiste</div>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<html>
+
+<head>
+	<title>Autori</title>
+	<link rel="stylesheet" href="/css/stile.css" />
+</head>
+
+<body>
+	<div><a href="/"><img src="/libreria-logo.jpg" width="50%"/></a></div>
+	<h1>Autori</h1>
+	<div th:if="${authors.isEmpty()}">Non ci sono autori registrati nel sistema</div>
+	<ul>
+		<li th:each="author : ${authors}">
+			<a th:href="@{'/authorsToAdd' + '/' + ${author.id}+'/'+${book.id}}"
+				th:text="${author.nome}  +' '+ ${author.cognome}">Pinco Pallino</a>
+		</li>
+	</ul>
+</body>
+
+</html>

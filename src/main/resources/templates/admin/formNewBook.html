@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		New Book
+	</title>
+	<link rel="stylesheet" href="/css/stile.css" />
+</head>
+
+<body>
+	<div><a href="/"><img src="/libreria-logo.jpg" width="50%"/></a></div>
+	<h1>Aggiungi un Libro</h1>
+	<form th:action="@{/admin/libri}" method="POST" th:object="${book}" enctype="multipart/form-data">
+		<div>
+			<span th:text="${messaggioErrore}">Errore</span>
+		</div>
+		
+		<div>
+			<label for="titolo">Titolo:</label> <span><input required type="text" th:field="${book.title}" id="titolo"/></span>
+		</div>
+
+		<div>
+			<label for="isbn">ISBN:</label> <span><input required type="text" th:field="${book.isbn}" id="isbn"/></span>
+		</div>
+		
+		<div>
+			<label for="Categoria">Categoria:</label> <span><input required type="text" th:field="${book.categoria}" id="categoria"/></span>
+		</div>
+
+		<div>
+			<label for="urlImmagine">URL immagine:</label> <span><input type="file" accept="image/*"  name="image" /></span>
+		</div>
+		
+		<div>
+			<span><button type="submit">Conferma</button></span>
+		</div>
+	</form>
+</body>
+
+</html>

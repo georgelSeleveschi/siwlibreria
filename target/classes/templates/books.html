@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Libri</title>
+	<link rel="stylesheet" href="/css/stile.css" />
+</head>
+
+<body>
+	<div><a href="/"><img src="/libreria-logo.jpg" width="50%"/></a></div>
+	<h1>Libri</h1>
+	<div th:if="${books.isEmpty()}">Non ci sono libri nel sistema</div>
+	<ul>
+		<li th:each="book : ${books}">
+			<a th:href="@{'book' + '/' + ${book.id}}"
+				th:text="${book.title} + ' (' + ${book.isbn} + ')'">Ricerca Operativa (9872038204)</a>
+		</li>
+	</ul>
+</body>
+
+</html>

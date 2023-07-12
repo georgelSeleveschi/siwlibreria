@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		New prestito
+	</title>
+	<link rel="stylesheet" href="/css/stile.css" />
+</head>
+
+<body>
+	<header>
+		<div th:if="${#request.userPrincipal}">
+			<span th:text="${#request.userPrincipal.principal.username}"></span>
+			<a href="/logout">Logout</a>
+		</div>
+		<div th:unless="${#request.userPrincipal}">
+			<a href="/login">Login</a>
+		</div>
+	</header>
+
+	<div><img src="/libreria-logo.jpg" width="50%"/></div>
+	<h1>Prendi in prestito</h1>
+	<form th:action="@{'/prestito' + '/' + ${id} + '/' + ${#request.userPrincipal.principal.username}}" method="POST" th:object="${recensione}">
+		<div>
+			<span th:text="${messaggioErrore}">Errore</span>
+		</div>
+		
+		<div>
+			<label>Data di Inizio Prestito:</label> <span><input type="date" th:field="${prestito.dataInizio}" /></span>
+		</div>
+		<div>
+			<label>Data di fine Prestito:</label> <span><input type="date" th:field="${prestito.dataFine}" /></span>
+		</div>
+		<div>
+			<span><button type="submit">Conferma</button></span>
+		</div>
+	</form>
+</body>
+
+</html>

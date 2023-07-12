@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Libro</title>
+    <link rel="stylesheet" href="/css/stile.css" />
+  </head>
+  <body>
+    <div>
+      <a href="/"><img src="/libreria-logo.jpg" width="50%" /></a>
+    </div>
+    <div th:if="${book}">
+      <form th:action="@{/admin/delete}" method="get">
+        <div><h1 th:text="${book.title}">Dettagli Libro</h1></div>
+        <ul>
+          <li>isbn : <span th:text="'(' + ${book.isbn} + ')'">2000</span></li>
+          <li>Categoria : <span th:text="'(' + ${book.categoria} + ')'"></span></li>
+          <li><span><img width="30%" th:src=${book.urlImage} /></span></li>
+          <li th:if="${book.autore}">
+            Autore : <a th:href="@{'/author'+'/'+${book.autore.getId()}}" th:text="${book.autore.getNome()}+' '+${book.autore.getCognome()}">Pinco Pallino</a>
+          </li>
+          <li th:unless="${book.autore}">
+            Autore : <a th:href="@{'/admin'+'/authorsToAdd'+'/'+${book.id}}" text="Aggiungi Autore">Aggiungi Autore</a>
+          </li>
+        </ul>
+        <button type="Long" th:value=${book.id} name="id">Delete</button>
+      </form>
+    </div>
+    <div th:unless="${book}">Non esiste</div>
+  </body>
+</html>

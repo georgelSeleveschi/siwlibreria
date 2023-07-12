@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Libro</title>
+<link rel="stylesheet" href="/css/stile.css" />
+</head>
+
+<body>
+	<div><a href="/"><img src="/libreria-logo.jpg" width="50%"/></a></div>
+	<h1>Libri che soddisfano i requisiti</h1>
+	<div th:if="${libri.isEmpty()}">Non ci sono libri che soddisfano i requisiti</div>
+	<ul th:if="${!libri.isEmpty()}">
+		<li th:each="book : ${libri}">
+			<a href="book.html" th:href="@{'/book' + '/' + ${book.id}}"
+				th:text="${book.title} + ' (' + ${book.isbn}+')'">Romanzo (89820983)</a>
+		</li>
+	</ul>
+</body>
+
+</html>
